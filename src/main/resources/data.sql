@@ -13,5 +13,8 @@ INSERT INTO drink(id, name, price,category,amount,factory) VALUES(8, 'GEORGIAN',
 
 
 
--- ユーザーテーブルデータ
-INSERT INTO users(id, name, password,email,address,status) VALUES(1, '柳田悠岐','himitu','gita@aaa','福岡県福岡市中央区地行浜2-2-2', 2);
+-- プレミアテーブルデータ
+INSERT INTO premiere(id, name, password,email,address,birthday) VALUES(1, '柳田悠岐','himitu','gita1009@aaa','福岡県福岡市中央区地行浜2-2-2','10/09');
+
+--ユーザーテーブデータ--
+INSERT INTO users(id, name, password,email,address,birthday) VALUES(1, '周東佑京','himitu','shuto210@aaa','福岡県福岡市中央区地行浜2-2-2','02/10');

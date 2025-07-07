@@ -21,6 +21,18 @@ CREATE TABLE users
 	password TEXT,
 	email TEXT,
 	address TEXT,
-	status INTEGER
+	birthday TEXT
+	
+);
+
+
+CREATE TABLE premiere
+(
+	id SERIAL PRIMARY KEY,
+	name TEXT,
+	password TEXT,
+	email TEXT,
+	address TEXT,
+	birthday TEXT
 	
 );
