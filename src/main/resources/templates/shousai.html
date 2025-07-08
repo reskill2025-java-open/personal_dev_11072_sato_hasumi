@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>商品詳細</h1>
+
+<table border="1">
+	<tr>
+		<th>商品No</th>
+		<th>商品名</th>
+		<th>価格</th>
+		<th>種類</th>
+		<th>内容量</th>
+		<th>製造メーカー</th>
+	</tr>
+	<tr th:each="drink:${drink}">
+		<td>[[${drink.id}]]</td>
+		<td>[[${drink.name}]]</td>
+		<td>[[${drink.price}]]</td>
+		<td>[[${drink.category}]]</td>
+		<td>[[${drink.amount}]]</td>
+		<td>[[${drink.factory}]]</td>
+		
+		<td>
+				<form action="/cart/add" method="post">
+					<input type="hidden" name="id">
+					<button>カートに追加</button>
+				</form>
+				
+			</td>
+	</tr>
+	
+</table>
+
+</body>
+</html>

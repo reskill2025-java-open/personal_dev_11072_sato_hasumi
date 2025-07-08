@@ -7,22 +7,37 @@
 <body>
 <h1>商品一覧</h1>
 
+<form action="/drink" method="get">
+	<input type="text" name="keyword"
+	th:value="${keyword}"placeholder=商品名>
+<button>検索</button>
+	
+</form>
+
+
 <table border="1">
 	<tr>
 		<th>商品No</th>
 		<th>商品名</th>
 		<th>価格</th>
 		<th>種類</th>
-		<th>内容量</th>
-		<th>製造メーカー</th>
+<!--		<th>内容量</th>-->
+<!--		<th>製造メーカー</th>-->
 	</tr>
 	<tr th:each="drink:${drink}">
-		<td th:text="${drink.id}"></td>
-		<td th:text="${drink.name}"></td>
-		<td th:text="${drink.price}"></td>
+		<td>[[${drink.id}]]</td>
+		<td><a th:href="@{/drink/{id}(id=${drink.id})}">[[${drink.name}]]</td>
+		<td>[[${drink.price}]]</td>
 		<td th:text="${drink.category}"></td>
-		<td th:text="${drink.amount}"></td>
-		<td th:text="${drink.factory}"></td>
+<!--		<td th:text="${drink.amount}"></td>-->
+<!--		<td th:text="${drink.factory}"></td>-->
+	<td>
+		<form action="/cart/add" method="post">
+			<input type="hidden" name="id">
+			<button>カートに追加</button>
+		</form>
+		
+	</td>
 	</tr>
 	
 </table>
