@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS users;
 
 
 
+
 CREATE TABLE drink
 (
 	id SERIAL PRIMARY KEY,
@@ -21,18 +22,7 @@ CREATE TABLE users
 	password TEXT,
 	email TEXT,
 	address TEXT,
-	birthday TEXT
-	
-);
-
-
-CREATE TABLE premiere
-(
-	id SERIAL PRIMARY KEY,
-	name TEXT,
-	password TEXT,
-	email TEXT,
-	address TEXT,
-	birthday TEXT
+	birthday TEXT,
+	status 	INTEGER
 	
 );
