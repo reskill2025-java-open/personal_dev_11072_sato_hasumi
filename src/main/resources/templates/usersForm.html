@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<h1>注文確認</h1>
 
 <div th:replace="cartDrink"></div>
 			<form action="/order">
 			</form>
-
+<main>
 <br>
 <h3>お客様情報</h3>
 <table border="1">
@@ -31,5 +31,6 @@
 	<form action="/order/confirm">
 	<button>注文確定</button>
     </form>
+	</main>
 </body>
 </html>

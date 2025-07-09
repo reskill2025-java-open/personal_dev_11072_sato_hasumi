@@ -44,9 +44,25 @@ public class Cart {
 		// 存在した場合は、個数の更新を行う
 		if (existsDrink == null) {
 			drink.add(newDrink);
+
 		} else {
 			existsDrink.setQuantity(
 					existsDrink.getQuantity() + newDrink.getQuantity());
 		}
+	}
+
+	public void delete(int id) {
+		for (Drink drink : drink) {
+			if (drink.getId() == id) {
+				this.drink.remove(drink);
+				break;
+			}
+		}
+
+	}
+
+	public void clear() {
+		drink = new ArrayList<>();
+
 	}
 }

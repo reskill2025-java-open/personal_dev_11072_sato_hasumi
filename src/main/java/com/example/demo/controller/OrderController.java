@@ -38,11 +38,17 @@ public class OrderController {
 		model.addAttribute("address", address);
 		model.addAttribute("email", email);
 
+		//		List<Users> user = usersRepository.findByName(name);
+		//		Users users1 = user.get(0);
+		//		usersAccount.setAddress(users1.getAddress());
+		//		usersAccount.setEmail(users1.getEmail());
+
 		return "usersForm";
 	}
 
 	@GetMapping("/order/confirm")
 	public String confirm() {
+		cart.clear();
 		return "orderConfirm";
 	}
 

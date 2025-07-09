@@ -3,8 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
+	<header>
+	<h1>ドリンクショッピング</h1>
+	</header>
+	<main>
 <h1>カート一覧</h1>
 <a href="/drink">商品一覧に戻る</a>
 
@@ -22,6 +29,12 @@
 			<td th:text="${drink.price}"></td>
 			<td th:text="${drink.quantity}"></td>
 			<td th:text="${drink.price * drink.quantity}"></td>
+			<td>
+				<form action="/cart/delete" method="post">
+					<input type="hidden" name="id" th:value="${drink.id}">
+					<button>削除</button>
+				</form>
+			</td>
 	<tr>
 			<td th:text="'総計：'+${@cart.totalPrice}"></td>
 			
@@ -29,5 +42,6 @@
 	
 	
 </table>
+</main>
 </body>
 </html>

@@ -3,9 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
-<h1>商品一覧</h1>
+<header>
+<h1>ドリンクショッピング</h1>
+</header>
+<main>
+<h3>
+	ようこそ[[${@usersAccount.name}]]さん
+</h3>
+<h2>商品一覧</h2>
+
+
+
 
 <form action="/drink" method="get">
 	<input type="text" name="keyword"
@@ -42,5 +55,6 @@
 	</tr>
 	
 </table>
+</main>
 </body>
 </html>

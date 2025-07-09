@@ -31,4 +31,10 @@ public class CartController {
 
 		return "redirect:/cart";
 	}
+
+	@PostMapping("/cart/delete")
+	public String deleteCart(@RequestParam("id") int id) {
+		cart.delete(id);
+		return "redirect:/cart";
+	}
 }

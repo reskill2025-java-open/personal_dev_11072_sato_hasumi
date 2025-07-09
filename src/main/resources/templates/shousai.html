@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
-<h1>商品詳細</h1>
+	<header>
+	<h1>ドリンクショッピング</h1>
+	</header>
+	<main>
+<h2>商品詳細</h2>
 
 <table border="1">
 	<tr>
@@ -26,7 +33,7 @@
 		
 		<td>
 				<form action="/cart/add" method="post">
-					<input type="hidden" name="id">
+					<input type="hidden" name="id" th:value="${drink.id}">
 					<button>カートに追加</button>
 				</form>
 				
@@ -34,6 +41,6 @@
 	</tr>
 	
 </table>
-
+</main>
 </body>
 </html>

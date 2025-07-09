@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
-<h1>ログインはこちら</h1>
-
+<header>
+<h1>ドリンクショッピング</h1>
+</header>
+<main>
+	<h2>ログインはこちら</h2>
 <form action ="/login" method="post">
 	<br>
 	<span th:text="${message}" style="color: red;"></span>
@@ -24,6 +30,6 @@
 </form>
 <a href="/login/add">会員登録</a>
 
-
+</main>
 </body>
 </html>

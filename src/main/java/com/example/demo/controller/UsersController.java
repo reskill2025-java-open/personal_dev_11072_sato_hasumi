@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
@@ -42,63 +41,68 @@ public class UsersController {
 			Model model) {
 
 		if (name == null || name.length() == 0) {
-			model.addAttribute("message", "名前を入力してください");
+			model.addAttribute("message", "名前とパスワード入力してください");
 			return "login";
 		}
 
 		usersAccount.setName(name);
-		List<Users> users = usersRepository.findByName(name);
-		Users users1 = users.get(0);
+		List<Users> user = usersRepository.findByName(name);
+		Users users1 = user.get(0);
 		usersAccount.setAddress(users1.getAddress());
 		usersAccount.setEmail(users1.getEmail());
 
 		return "redirect:/drink";
 	}
 
+	//新規登録途中
 	@GetMapping("/login/add")
 	public String users() {
-		return "addlogin";
+		return "loginAdd";
 	}
 
 	@PostMapping("/login/add")
 	public String usersnew(
-			@RequestParam("name") String name,
-			@RequestParam("address") String address,
-			@RequestParam("email") String email,
-			@RequestParam("password") String password,
-			@RequestParam("birthday") String birthday,
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "address", defaultValue = "") String address,
+			@RequestParam(name = "email", defaultValue = "") String email,
+			@RequestParam(name = "password", defaultValue = "") String password,
+			@RequestParam(name = "birthday", defaultValue = "") String birthday,
 			Model model) {
 
-		// エラーチェック
-		List<String> errorList = new ArrayList<>();
-		if (name.length() == 0) {
-			errorList.add("名前は必須です");
-		}
-		if (address.length() == 0) {
-			errorList.add("住所は必須です");
-		}
-		if (password.length() == 0) {
-			errorList.add("パスワードは必須です");
-		}
-		if (email.length() == 0) {
-			errorList.add("メールアドレスは必須です");
-		}
+		Users users2 = new Users(name, address, email, password, birthday);
+		users2.setName(name);
+		users2.setAddress(address);
+		users2.setEmail(email);
+		users2.setPassword(password);
+		users2.setBirthday(birthday);
 
-		// エラー発生時はお問い合わせフォームに戻す
-		if (errorList.size() > 0) {
-			model.addAttribute("errorList", errorList);
-			model.addAttribute("name", name);
-			model.addAttribute("address", address);
-			model.addAttribute("password", password);
-			model.addAttribute("email", email);
-			model.addAttribute("birthday", birthday);
-			return "addLogin";
-		}
-
-		Users users = new Users(null, name, address, email, password, birthday, null);
-		usersRepository.save(users);
+		usersRepository.save(users2);
 
 		return "redirect:/drink";
 	}
 
+	// エラーチェック
+	//		List<String> errorList = new ArrayList<>();
+	//		if (name.length() == 0) {
+	//			errorList.add("名前は必須です");
+	//		}
+	//		if (address.length() == 0) {
+	//			errorList.add("住所は必須です");
+	//		}
+	//		if (password.length() == 0) {
+	//			errorList.add("パスワードは必須です");
+	//		}
+	//		if (email.length() == 0) {
+	//			errorList.add("メールアドレスは必須です");
+	//		}
+	//
+	//		// エラー発生時はお問い合わせフォームに戻す
+	//		if (errorList.size() > 0) {
+	//			model.addAttribute("errorList", errorList);
+	//			model.addAttribute("name", name);
+	//			model.addAttribute("address", address);
+	//			model.addAttribute("password", password);
+	//			model.addAttribute("email", email);
+	//			model.addAttribute("birthday", birthday);
+	//			return "LoginAdd";
 }
