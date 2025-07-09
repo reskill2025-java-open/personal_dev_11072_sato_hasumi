@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>注文確認</h1>
+
+<div th:replace="cartDrink"></div>
+			<form action="/order">
+			</form>
+
+<br>
+<h3>お客様情報</h3>
+<table border="1">
+	<tr>
+			<th>お名前</th>
+			<td th:text="${@usersAccount.name}"></td>
+	</tr>
+	<tr>
+			<th>住所</th>
+			<td th:text="${@usersAccount.address}"></td>
+	</tr>
+	<tr>
+			<th>メールアドレス</th>
+			<td th:text="${@usersAccount.email}"></td>
+	</tr>	
+	
+	</table>
+	<form action="/order/confirm">
+	<button>注文確定</button>
+    </form>
+</body>
+</html>

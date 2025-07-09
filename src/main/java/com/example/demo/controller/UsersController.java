@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Users;
+import com.example.demo.model.UsersAccount;
 import com.example.demo.repository.UsersRepository;
 
 @Controller
@@ -22,9 +23,13 @@ public class UsersController {
 	HttpSession session;
 	@Autowired
 	UsersRepository usersRepository;
+	@Autowired
+	UsersAccount usersAccount;
 
 	@GetMapping("/login")
 	public String login() {
+
+		session.invalidate();
 		return "login";
 	}
 
@@ -32,11 +37,21 @@ public class UsersController {
 	public String login(
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "password", defaultValue = "") String password,
+			@RequestParam(name = "address", defaultValue = "") String address,
+			@RequestParam(name = "email", defaultValue = "") String email,
 			Model model) {
-		//	if (name == null || name.length() == 0) {
-		//	model.addAttribute("message", "名前は必須です");
-		//return "login";
-		//} else
+
+		if (name == null || name.length() == 0) {
+			model.addAttribute("message", "名前を入力してください");
+			return "login";
+		}
+
+		usersAccount.setName(name);
+		List<Users> users = usersRepository.findByName(name);
+		Users users1 = users.get(0);
+		usersAccount.setAddress(users1.getAddress());
+		usersAccount.setEmail(users1.getEmail());
+
 		return "redirect:/drink";
 	}
 

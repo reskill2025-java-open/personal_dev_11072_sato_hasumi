@@ -29,6 +29,7 @@ public class DrinkController {
 		List<Drink> drinkList = null;
 		if (keyword.length() > 0) {
 			drinkList = drinkRepository.findByNameContaining(keyword);
+			model.addAttribute("drink", drinkList);
 			model.addAttribute("keyword", keyword);
 		}
 

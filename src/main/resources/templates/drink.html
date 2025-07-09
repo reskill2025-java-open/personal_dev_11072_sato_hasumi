@@ -11,6 +11,7 @@
 	<input type="text" name="keyword"
 	th:value="${keyword}"placeholder=商品名>
 <button>検索</button>
+<a href="/cart">カートを見る</a>
 	
 </form>
 
@@ -33,7 +34,7 @@
 <!--		<td th:text="${drink.factory}"></td>-->
 	<td>
 		<form action="/cart/add" method="post">
-			<input type="hidden" name="id">
+			<input type="hidden" name="id" th:value="${drink.id}">
 			<button>カートに追加</button>
 		</form>
 		
