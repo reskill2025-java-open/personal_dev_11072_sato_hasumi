@@ -22,18 +22,28 @@ public class DrinkController {
 	public String drink(
 			@RequestParam(value = "keyword", defaultValue = "") String keyword,
 			@RequestParam(value = "maxPrice", defaultValue = "") Integer maxPrice,
+			@RequestParam(value = "categories", defaultValue = "") String categories,
 			Model model) {
 
 		List<Drink> DrinkList = drinkRepository.findAll();
 		model.addAttribute("drink", DrinkList);
 
 		List<Drink> drinkList = null;
-		if (keyword.length() > 0 && maxPrice != null) {
+		if (categories.length() > 0 && keyword.length() > 0 && maxPrice != null) {
+			drinkList = drinkRepository.findByNameContainingAndPriceLessThanEqualAndCategoryContaining(keyword,
+					maxPrice, categories);
+
+		} else if (keyword.length() > 0 && maxPrice != null) {
 			drinkList = drinkRepository.findByNameContainingAndPriceLessThanEqual(keyword, maxPrice);
+
 		} else if (keyword.length() > 0) {
 			drinkList = drinkRepository.findByNameContaining(keyword);
 
-		} else if (maxPrice != null) {
+		} else if (categories.length() > 0) {
+			drinkList = drinkRepository.findByCategoryContaining(categories);
+		}
+
+		else if (maxPrice != null) {
 			drinkList = drinkRepository.findByPriceLessThanEqual(maxPrice);
 
 		} else {
@@ -41,6 +51,7 @@ public class DrinkController {
 		}
 		model.addAttribute("drink", drinkList);
 		model.addAttribute("keyword", keyword);
+		model.addAttribute("categories", categories);
 		model.addAttribute("maxPrice", maxPrice);
 
 		return "drink";
