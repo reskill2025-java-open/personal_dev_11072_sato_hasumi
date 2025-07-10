@@ -12,7 +12,7 @@
 	<h1>ドリンクショッピング</h1>
 	</header>
 	<main>
-<h1>カート一覧</h1>
+<h2>カート一覧</h2>
 <a href="/drink">商品一覧に戻る</a>
 
 <table border="1">
@@ -23,6 +23,7 @@
 		<th>種類</th>
 		<th>個数</th>
 		<th>小計</th>
+		<th></th>
 	</tr>
 	<tr th:each="drink:${@cart.drink}">
 			<td th:text="${drink.id}"></td>
