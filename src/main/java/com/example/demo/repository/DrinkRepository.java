@@ -10,4 +10,8 @@ public interface DrinkRepository extends JpaRepository<Drink, Integer> {
 
 	List<Drink> findByNameContaining(String keyword);
 
+	List<Drink> findByNameContainingAndPriceLessThanEqual(String keyword, Integer maxPrice);
+
+	List<Drink> findByPriceLessThanEqual(Integer maxPrice);
+
 }

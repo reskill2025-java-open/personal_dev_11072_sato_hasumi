@@ -21,12 +21,14 @@
 		<th>商品名</th>
 		<th>価格</th>
 		<th>種類</th>
+		<th>個数</th>
 		<th>小計</th>
 	</tr>
 	<tr th:each="drink:${@cart.drink}">
 			<td th:text="${drink.id}"></td>
 			<td th:text="${drink.name}"></td>
 			<td th:text="${drink.price}"></td>
+			<td th:text="${drink.category}"></td>
 			<td th:text="${drink.quantity}"></td>
 			<td th:text="${drink.price * drink.quantity}"></td>
 			<td>

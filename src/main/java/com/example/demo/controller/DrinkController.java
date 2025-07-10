@@ -21,17 +21,27 @@ public class DrinkController {
 	@GetMapping("/drink")
 	public String drink(
 			@RequestParam(value = "keyword", defaultValue = "") String keyword,
+			@RequestParam(value = "maxPrice", defaultValue = "") Integer maxPrice,
 			Model model) {
 
 		List<Drink> DrinkList = drinkRepository.findAll();
 		model.addAttribute("drink", DrinkList);
 
 		List<Drink> drinkList = null;
-		if (keyword.length() > 0) {
+		if (keyword.length() > 0 && maxPrice != null) {
+			drinkList = drinkRepository.findByNameContainingAndPriceLessThanEqual(keyword, maxPrice);
+		} else if (keyword.length() > 0) {
 			drinkList = drinkRepository.findByNameContaining(keyword);
-			model.addAttribute("drink", drinkList);
-			model.addAttribute("keyword", keyword);
+
+		} else if (maxPrice != null) {
+			drinkList = drinkRepository.findByPriceLessThanEqual(maxPrice);
+
+		} else {
+			drinkList = drinkRepository.findAll();
 		}
+		model.addAttribute("drink", drinkList);
+		model.addAttribute("keyword", keyword);
+		model.addAttribute("maxPrice", maxPrice);
 
 		return "drink";
 	}

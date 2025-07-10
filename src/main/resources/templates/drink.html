@@ -23,7 +23,11 @@
 <form action="/drink" method="get">
 	<input type="text" name="keyword"
 	th:value="${keyword}"placeholder=商品名>
-<button>検索</button>
+	|
+	<input type="number" name="maxPrice"
+	th value="${maxPrice}" placeholder="価格">円以下
+	<button>検索</button>
+<a href="/drink">商品一覧へ戻る</a> ♡
 <a href="/cart">カートを見る</a>
 	
 </form>
