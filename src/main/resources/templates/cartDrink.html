@@ -28,10 +28,10 @@
 	<tr th:each="drink:${@cart.drink}">
 			<td th:text="${drink.id}"></td>
 			<td th:text="${drink.name}"></td>
-			<td th:text="${drink.price}"></td>
+			<td th:text="${drink.price}+'円'"></td>
 			<td th:text="${drink.category}"></td>
 			<td th:text="${drink.quantity}"></td>
-			<td th:text="${drink.price * drink.quantity}"></td>
+			<td th:text="${drink.price * drink.quantity}+'円'"></td>
 			<td>
 				<form action="/cart/delete" method="post">
 					<input type="hidden" name="id" th:value="${drink.id}">
@@ -39,7 +39,9 @@
 				</form>
 			</td>
 	<tr>
-			<td th:text="'総計：'+${@cart.totalPrice}"></td>
+		
+		<td align="right" colspan="6" th:text="'総計：'+${@cart.totalPrice}+'円'"></td>
+		
 			
 	</tr>
 	
