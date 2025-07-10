@@ -40,12 +40,19 @@ public class UsersController {
 			@RequestParam(name = "email", defaultValue = "") String email,
 			Model model) {
 
-		if (name == null || name.length() == 0) {
-			model.addAttribute("message", "名前とパスワード入力してください");
+		if ((name == null || name.length() == 0) && (password == null || password.length() == 0)) {
+			model.addAttribute("message", "名前とパスワードは必須です");
+			return "login";
+		} else if (name == null || name.length() == 0) {
+			model.addAttribute("message1", "名前は必須です");
+			return "login";
+		} else if (password == null || password.length() == 0) {
+			model.addAttribute("message2", "パスワードは必須です");
 			return "login";
 		}
 
 		usersAccount.setName(name);
+
 		List<Users> user = usersRepository.findByName(name);
 		Users users1 = user.get(0);
 		usersAccount.setAddress(users1.getAddress());

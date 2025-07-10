@@ -16,13 +16,17 @@
 <form action ="/login" method="post">
 	<br>
 	<span th:text="${message}" style="color: red;"></span>
+	<span th:text="${message1}" style="color: red;"></span>
+	<span th:text="${message2}" style="color: red;"></span>
 	<table>
 		<tr>
-			<th>名前</th><td><input type="text" name="name"></td>
+			<th>名前</th><td>
+			<input type="text" size="40" name="name" th:value="${name}" ></td>
 		</tr>
 		
 		<tr>
-			<th>パスワード</th><td><input type="password" name="password"></td>
+			<th>パスワード</th><td>
+			<input type="password" size="40" name="password"></td>
 		</tr>
 		
 	</table>

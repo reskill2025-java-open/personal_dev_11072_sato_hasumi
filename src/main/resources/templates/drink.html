@@ -23,8 +23,22 @@
 <form action="/drink" method="get">
 	<input type="text" name="keyword"
 	th:value="${keyword}"placeholder=商品名>
-<button>検索</button>
-<a href="/cart">カートを見る</a>
+	♡
+	
+	<input type="text" name="categories"
+	th:value="${categories}" placeholder="種類">
+	♡
+	
+	<input type="number" name="maxPrice"
+	th value="${maxPrice}" placeholder="価格">円以下
+	
+	
+	
+	<button>検索</button>
+	
+<br>
+♡<a href="/drink">商品一覧へ戻る</a>
+♡<a href="/cart">カートを見る</a>
 	
 </form>
 
@@ -35,6 +49,7 @@
 		<th>商品名</th>
 		<th>価格</th>
 		<th>種類</th>
+		<th></th>
 <!--		<th>内容量</th>-->
 <!--		<th>製造メーカー</th>-->
 	</tr>

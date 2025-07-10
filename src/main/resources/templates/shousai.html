@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 <body>
@@ -13,6 +13,7 @@
 	</header>
 	<main>
 <h2>商品詳細</h2>
+<a href="/drink">商品一覧へ戻る</a>
 
 <table border="1">
 	<tr>
@@ -22,6 +23,7 @@
 		<th>種類</th>
 		<th>内容量</th>
 		<th>製造メーカー</th>
+		<th></th>
 	</tr>
 	<tr th:each="drink:${drink}">
 		<td>[[${drink.id}]]</td>
