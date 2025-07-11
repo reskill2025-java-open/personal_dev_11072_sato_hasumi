@@ -52,12 +52,16 @@ public class UsersController {
 		}
 
 		usersAccount.setName(name);
+		usersAccount.setAddress(address);
+		usersAccount.setEmail(email);
 
-		List<Users> user = usersRepository.findByName(name);
-		Users users1 = user.get(0);
-		usersAccount.setAddress(users1.getAddress());
-		usersAccount.setEmail(users1.getEmail());
-
+		///発送するときの顧客情報
+		if (address.equals("")) {
+			List<Users> user = usersRepository.findByName(name);
+			Users users1 = user.get(0);
+			usersAccount.setAddress(users1.getAddress());
+			usersAccount.setEmail(users1.getEmail());
+		}
 		return "redirect:/drink";
 	}
 
@@ -67,26 +71,31 @@ public class UsersController {
 		return "loginAdd";
 	}
 
-	@PostMapping("/login/add")
-	public String usersnew(
-			@RequestParam(name = "name", defaultValue = "") String name,
-			@RequestParam(name = "address", defaultValue = "") String address,
-			@RequestParam(name = "email", defaultValue = "") String email,
-			@RequestParam(name = "password", defaultValue = "") String password,
-			@RequestParam(name = "birthday", defaultValue = "") String birthday,
-			Model model) {
-
-		Users users2 = new Users(name, address, email, password, birthday);
-		users2.setName(name);
-		users2.setAddress(address);
-		users2.setEmail(email);
-		users2.setPassword(password);
-		users2.setBirthday(birthday);
-
-		usersRepository.save(users2);
-
-		return "redirect:/drink";
-	}
+	//	@PostMapping("/login/add")
+	//	public String usersnew(
+	//			@RequestParam(name = "name", defaultValue = "") String name,
+	//			@RequestParam(name = "address", defaultValue = "") String address,
+	//			@RequestParam(name = "email", defaultValue = "") String email,
+	//			@RequestParam(name = "password", defaultValue = "") String password,
+	//			@RequestParam(name = "birthday", defaultValue = "") String birthday,
+	//			Model model) {
+	//
+	//		Users users2 = new Users(name, address, email, password, birthday);
+	//		users2.setName(name);
+	//		users2.setAddress(address);
+	//		users2.setEmail(email);
+	//		users2.setPassword(password);
+	//		users2.setBirthday(birthday);
+	//
+	//		usersRepository.save(users2);
+	//
+	//		List<Users> user = usersRepository.findByName(name);
+	//		Users users1 = user.get(0);
+	//		usersAccount.setAddress(users1.getAddress());
+	//		usersAccount.setEmail(users1.getEmail());
+	//
+	//		return "redirect:/drink";
+	//	}
 
 	// エラーチェック
 	//		List<String> errorList = new ArrayList<>();

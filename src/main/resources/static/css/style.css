@@ -41,6 +41,7 @@ table {
     margin: 5px auto;
     min-width: 800px;
 }
+
 /* 表見出しセル */
 table th {
 	background: #20B2AA;
@@ -55,8 +56,61 @@ button {
 	border: none;
 	width:150px;
 	cursor: pointer;
+	border-radius: 10px;
 }
 /* 送信ボタン(マウスオーバー時) */
 button:hover {
 	background-color: #f1b2b2;
+}
+
+h3 {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 2rem;
+    box-shadow: 0px -5px #f1a4aa, 0px 5px #f1a4aa;
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    background-color: #f1a4aa;
+    color: #353535;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h3::before {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-width: 30px 15px 30px 0px;
+    border-color: transparent #fff;
+    border-style: solid;
+    content: '';
+}
+
+
+.heading03 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 26px;
+	text-align: center;
+}
+
+.heading03::before,
+.heading03::after {
+	content: '';
+	width: 70px;
+	height: 3px;
+	background-color: #00CCCC ;
+}
+
+.heading03::before {
+	margin-right: 20px;
+}
+.heading03::after {
+	margin-left: 20px;
 }
