@@ -8,7 +8,7 @@ body {
 /* ヘッダー、ナビゲーションメニュー、フッター */
 header, nav, footer {
 	background-color: #FF82B2; /* 背景色 */
-	color: #ffffff; /* 文字色 */
+	color: #777777	; /* 文字色 */
 	padding-top: 5px; /* 内側余白(上) */
 	padding-bottom: 5px; /* 内側余白(下) */
 }

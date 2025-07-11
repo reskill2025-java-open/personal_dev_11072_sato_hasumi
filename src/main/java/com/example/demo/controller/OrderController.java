@@ -31,17 +31,11 @@ public class OrderController {
 			@RequestParam(name = "email", defaultValue = "") String email,
 			Model model) {
 		List<Users> users = usersRepository.findByName(name);
-		//List<Users>users= usersRepository.findByAddressAndEmail(address)
 
 		model.addAttribute("users", users);
 		model.addAttribute("name", name);
 		model.addAttribute("address", address);
 		model.addAttribute("email", email);
-
-		//		List<Users> user = usersRepository.findByName(name);
-		//		Users users1 = user.get(0);
-		//		usersAccount.setAddress(users1.getAddress());
-		//		usersAccount.setEmail(users1.getEmail());
 
 		return "usersForm";
 	}
