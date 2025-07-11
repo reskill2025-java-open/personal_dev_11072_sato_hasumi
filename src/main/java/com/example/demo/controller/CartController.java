@@ -35,11 +35,6 @@ public class CartController {
 		drink.setQuantity(1);
 		cart.add(drink);
 
-		//		List<Users> user = usersRepository.findByName(usersAccount.setName(name));
-		//		Users users1 = user.get(0);
-		//		usersAccount.setAddress(users1.getAddress());
-		//		usersAccount.setEmail(users1.getEmail());
-
 		return "redirect:/cart";
 	}
 
