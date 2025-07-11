@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Drink;
 import com.example.demo.model.Cart;
+import com.example.demo.model.UsersAccount;
 import com.example.demo.repository.DrinkRepository;
+import com.example.demo.repository.UsersRepository;
 
 @Controller
 public class CartController {
@@ -16,6 +18,10 @@ public class CartController {
 	DrinkRepository drinkRepository;
 	@Autowired
 	Cart cart;
+	@Autowired
+	UsersRepository usersRepository;
+	@Autowired
+	UsersAccount usersAccount;
 
 	@GetMapping("/cart")
 	public String cart() {
@@ -28,6 +34,11 @@ public class CartController {
 		Drink drink = drinkRepository.findById(id).get();
 		drink.setQuantity(1);
 		cart.add(drink);
+
+		//		List<Users> user = usersRepository.findByName(usersAccount.setName(name));
+		//		Users users1 = user.get(0);
+		//		usersAccount.setAddress(users1.getAddress());
+		//		usersAccount.setEmail(users1.getEmail());
 
 		return "redirect:/cart";
 	}
