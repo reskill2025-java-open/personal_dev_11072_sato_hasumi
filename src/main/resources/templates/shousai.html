@@ -32,16 +32,13 @@
 		<td>[[${drink.category}]]</td>
 		<td>[[${drink.amount}]]ml</td>
 		<td>[[${drink.factory}]]</td>
-		
 		<td>
 				<form action="/cart/add" method="post">
 					<input type="hidden" name="id" th:value="${drink.id}">
 					<button>カートに追加</button>
 				</form>
-				
-			</td>
+		</td>
 	</tr>
-	
 </table>
 
 </main>

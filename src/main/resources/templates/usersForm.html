@@ -16,24 +16,18 @@
 <table border="1" height="150">
 	<tr>
 			<th>お名前</th>
-			<td>
-				
-			<input type="text"  size="40" th:value="${@usersAccount.name}"></td>
+			<td><input type="text"  size="40" th:value="${@usersAccount.name}"></td>
 	</tr>
 	<tr>
 			<th>住所</th>
-			<td>
-				
-			<input type="text" size="40" th:value="${@usersAccount.address}"></td>
+			<td><input type="text" size="40" th:value="${@usersAccount.address}"></td>
 	</tr>
 	<tr>
 			<th>メールアドレス</th>
-			<td>
-				
-			<input type="text" size="40" th:value="${@usersAccount.email}"></td>
+			<td><input type="text" size="40" th:value="${@usersAccount.email}"></td>
 	</tr>	
-	
 	</table>
+	
 	<form action="/order/confirm">
 	<button>注文確定</button>
     </form>
