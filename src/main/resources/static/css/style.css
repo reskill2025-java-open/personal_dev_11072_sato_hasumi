@@ -114,3 +114,13 @@ h3::before {
 .heading03::after {
 	margin-left: 20px;
 }
+
+@font-face  {
+    font-family: "myfont"; /*任意のフォントファミリー名でOK*/
+    src: url("../font/Yomogi-Regular.ttf") format("truetype"); /*fontがあるパスを書いて、formatを指定*/
+  }
+ h1{
+	font-family:"myfont" ,  sans-serif;
+	font-weight: bold;
+ }
+	
