@@ -45,14 +45,14 @@ table {
 /* 表見出しセル */
 table th {
 	background: #20B2AA;
-	color: #ffffff;
+	color: #000000	;
 }
 /* 送信ボタン */
 button {
 	margin: 2px;
 	padding: 5px 20px;
-	background-color: #DA70D6;
-	color: #ffffff;
+	background-color: #DA70D6	;
+	color: #000000	;
 	border: none;
 	width:150px;
 	cursor: pointer;
@@ -123,4 +123,21 @@ h3::before {
 	font-family:"myfont" ,  sans-serif;
 	font-weight: bold;
  }
+ 
+ .fadeInRight {
+     animation: fadeInRight 3s ease 0s 1 normal;
+ }
+ /* fadeInRight */
+ @keyframes fadeInRight {
+   0% {
+     opacity: 0;
+     transform: translateX(30px);
+   }
+   100% {
+     opacity: 1;
+   }
+ }
+ 
+ 
+
 	
