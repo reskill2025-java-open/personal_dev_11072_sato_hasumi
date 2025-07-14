@@ -65,7 +65,7 @@ public class UsersController {
 		return "redirect:/drink";
 	}
 
-	//新規登録途中
+	//新規登録
 	@GetMapping("/login/add")
 	public String users() {
 		return "loginAdd";
@@ -81,21 +81,16 @@ public class UsersController {
 	//			Model model) {
 	//
 	//		Users users2 = new Users(name, address, email, password, birthday);
-	//		users2.setName(name);
-	//		users2.setAddress(address);
-	//		users2.setEmail(email);
-	//		users2.setPassword(password);
-	//		users2.setBirthday(birthday);
-	//
 	//		usersRepository.save(users2);
+	//		return "redirect:/drink";
+	//	}
+	//		
 	//
 	//		List<Users> user = usersRepository.findByName(name);
 	//		Users users1 = user.get(0);
 	//		usersAccount.setAddress(users1.getAddress());
 	//		usersAccount.setEmail(users1.getEmail());
 	//
-	//		return "redirect:/drink";
-	//	}
 
 	// エラーチェック
 	//		List<String> errorList = new ArrayList<>();
