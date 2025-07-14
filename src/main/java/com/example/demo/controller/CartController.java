@@ -35,7 +35,7 @@ public class CartController {
 		drink.setQuantity(1);
 		cart.add(drink);
 
-		return "redirect:/cart";
+		return "redirect:/drink";
 	}
 
 	@PostMapping("/cart/delete")
