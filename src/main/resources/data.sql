@@ -14,5 +14,5 @@ INSERT INTO drink(id, name, price,category,amount,factory) VALUES(8, 'GEORGIAN',
 
 
 --ユーザーテーブデータ--
-INSERT INTO users(id, name, password,email,address,birthday,status) VALUES(1, '柳田悠岐','himitu','gita1009@aaa','福岡県福岡市中央区地行浜2-2-2','10/09',1);
-INSERT INTO users(id, name, password,email,address,birthday,status) VALUES(2, '周東佑京','himitu','shuto210@aaa','福岡県福岡市中央区地行浜2-2-2','02/10',2);
+INSERT INTO users( name, password,email,address,birthday,status) VALUES('柳田悠岐','himitu','gita1009@aaa','福岡県福岡市中央区地行浜2-2-2','10/09',1);
+INSERT INTO users( name, password,email,address,birthday,status) VALUES('周東佑京','himitu','shuto210@aaa','福岡県福岡市中央区地行浜2-2-2','02/10',2);

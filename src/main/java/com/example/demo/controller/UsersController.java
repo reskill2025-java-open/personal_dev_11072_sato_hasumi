@@ -38,6 +38,7 @@ public class UsersController {
 			@RequestParam(name = "password", defaultValue = "") String password,
 			@RequestParam(name = "address", defaultValue = "") String address,
 			@RequestParam(name = "email", defaultValue = "") String email,
+			@RequestParam(name = "birthday", defaultValue = "") String birthday,
 			Model model) {
 
 		if ((name == null || name.length() == 0) && (password == null || password.length() == 0)) {
@@ -71,49 +72,22 @@ public class UsersController {
 		return "loginAdd";
 	}
 
-	//	@PostMapping("/login/add")
-	//	public String usersnew(
-	//			@RequestParam(name = "name", defaultValue = "") String name,
-	//			@RequestParam(name = "address", defaultValue = "") String address,
-	//			@RequestParam(name = "email", defaultValue = "") String email,
-	//			@RequestParam(name = "password", defaultValue = "") String password,
-	//			@RequestParam(name = "birthday", defaultValue = "") String birthday,
-	//			Model model) {
-	//
-	//		Users users2 = new Users(name, address, email, password, birthday);
-	//		usersRepository.save(users2);
-	//		return "redirect:/drink";
-	//	}
-	//		
-	//
-	//		List<Users> user = usersRepository.findByName(name);
-	//		Users users1 = user.get(0);
-	//		usersAccount.setAddress(users1.getAddress());
-	//		usersAccount.setEmail(users1.getEmail());
-	//
+	@PostMapping("/login/add")
+	public String usersnew(
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "address", defaultValue = "") String address,
+			@RequestParam(name = "email", defaultValue = "") String email,
+			@RequestParam(name = "password", defaultValue = "") String password,
+			@RequestParam(name = "birthday", defaultValue = "") String birthday,
+			Model model) {
 
-	// エラーチェック
-	//		List<String> errorList = new ArrayList<>();
-	//		if (name.length() == 0) {
-	//			errorList.add("名前は必須です");
-	//		}
-	//		if (address.length() == 0) {
-	//			errorList.add("住所は必須です");
-	//		}
-	//		if (password.length() == 0) {
-	//			errorList.add("パスワードは必須です");
-	//		}
-	//		if (email.length() == 0) {
-	//			errorList.add("メールアドレスは必須です");
-	//		}
-	//
-	//		// エラー発生時はお問い合わせフォームに戻す
-	//		if (errorList.size() > 0) {
-	//			model.addAttribute("errorList", errorList);
-	//			model.addAttribute("name", name);
-	//			model.addAttribute("address", address);
-	//			model.addAttribute("password", password);
-	//			model.addAttribute("email", email);
-	//			model.addAttribute("birthday", birthday);
-	//			return "LoginAdd";
+		usersAccount.setName(name);
+		usersAccount.setAddress(address);
+		usersAccount.setEmail(email);
+
+		Users users2 = new Users(name, address, email, password, birthday);
+		usersRepository.save(users2);
+		return "redirect:/drink";
+	}
+
 }
