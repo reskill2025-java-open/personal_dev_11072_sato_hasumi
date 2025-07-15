@@ -81,6 +81,23 @@ public class UsersController {
 			@RequestParam(name = "birthday", defaultValue = "") String birthday,
 			Model model) {
 
+		if (name.equals("")) {
+			model.addAttribute("ms", "名前を入力してください");
+			return "loginAdd";
+
+		} else if (password.equals("")) {
+			model.addAttribute("ms1", "パスワードを入力してください");
+			return "loginAdd";
+
+		} else if (address.equals("")) {
+			model.addAttribute("ms2", "住所を入力してください");
+			return "loginAdd";
+
+		} else if (email.equals("")) {
+			model.addAttribute("ms3", "メールアドレスを入力してください");
+			return "loginAdd";
+		}
+
 		usersAccount.setName(name);
 		usersAccount.setAddress(address);
 		usersAccount.setEmail(email);
