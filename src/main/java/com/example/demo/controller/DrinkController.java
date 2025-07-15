@@ -36,6 +36,12 @@ public class DrinkController {
 		} else if (keyword.length() > 0 && maxPrice != null) {
 			drinkList = drinkRepository.findByNameContainingAndPriceLessThanEqual(keyword, maxPrice);
 
+		} else if (keyword.length() > 0 && categories.length() > 0) {
+			drinkList = drinkRepository.findByNameContainingAndCategoryContaining(keyword, categories);
+
+		} else if (categories.length() > 0 && maxPrice != null) {
+			drinkList = drinkRepository.findByCategoryContainingAndPriceLessThanEqual(categories, maxPrice);
+
 		} else if (keyword.length() > 0) {
 			drinkList = drinkRepository.findByNameContaining(keyword);
 
